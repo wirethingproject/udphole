@@ -13,27 +13,44 @@
 
 ## Examples
 
-    # Start a server
+### Start a server
+
     udphole listen 0.0.0.0:53000
 
-    # Punch a hole
+Any port can be used, `53000` was chosen for example purposes.
+
+### Punch a hole
+
     udphole punch udphole.fly.dev:53000
-    192.168.0.100:44266 # private
-    208.60.21.109:14554 # public
+    192.168.0.100:44266 # private ip and port
+    208.60.21.109:14554 # public ip and port
 
 ## Docker
 
-    # Build
+### Build
+
     docker build -t udphole:local -f Dockerfile .
 
-    # Listen
+### Listen
+
     docker run --rm \
         -p 53000:53000/udp --name udphole
         udphole:local listen 0.0.0.0:53000
 
-    # Stop listening
+As of 2023-10, it does not work on `macOS + colima` because currently `colima`
+does not expose UDP ports.
+
+#### Stop listening
+
     docker kill udphole
 
-    # Punch
+It is necessary to use `docker kill` to stop because `contro+c` is
+not terminating the process.
+
+### Punch
+
     docker run --rm \
         udphole:local punch udphole.fly.dev:53000
+
+Use this command only for testing purpose, it has no practical use because
+the container is terminated after execution.
