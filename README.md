@@ -11,17 +11,27 @@
     punch   Punch a UDP NAT hole by making a request to a server and prints
             the private and public ip and port in this order.
 
-## Examples
+## Build
+
+Install Rust https://www.rust-lang.org/tools/install and run:
+
+    cargo build --release
+
+## Install
+
+    cargo install --path .
+
+## Run
 
 ### Start a server
 
-    udphole listen 0.0.0.0:53000
+    cargo run listen 0.0.0.0:53000
 
 Any port can be used, `53000` was chosen for example purposes.
 
 ### Punch a hole
 
-    udphole punch udphole.fly.dev:53000
+    cargo run punch udphole.fly.dev:53000
     192.168.0.100:44266 # private ip and port
     208.60.21.109:14554 # public ip and port
 
