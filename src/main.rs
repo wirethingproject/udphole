@@ -104,11 +104,11 @@ Examples:
 
     # Start a server
 
-    udphole listen 0.0.0.0:53000
+    udphole listen 0.0.0.0:6094
 
     # Punch a hole
 
-    udphole punch udphole.fly.dev:53000
+    udphole punch udphole.fly.dev:6094
     192.168.0.100:44266 # private
     208.60.21.109:14554 # public
 ");

@@ -25,13 +25,13 @@ Install Rust https://www.rust-lang.org/tools/install and run:
 
 ### Start a server
 
-    cargo run listen 0.0.0.0:53000
+    cargo run listen 0.0.0.0:6094
 
-Any port can be used, `53000` was chosen for example purposes.
+Any port can be used, `6094` was chosen for example purposes.
 
 ### Punch a hole
 
-    cargo run punch udphole.fly.dev:53000
+    cargo run punch udphole.fly.dev:6094
     192.168.0.100:44266 # private ip and port
     208.60.21.109:14554 # public ip and port
 
@@ -44,8 +44,8 @@ Any port can be used, `53000` was chosen for example purposes.
 ### Listen
 
     docker run --rm \
-        -p 53000:53000/udp --name udphole
-        udphole:local listen 0.0.0.0:53000
+        -p 6094:6094/udp --name udphole
+        udphole:local listen 0.0.0.0:6094
 
 As of 2023-10, it does not work on `macOS + colima` because currently `colima`
 does not expose UDP ports.
@@ -60,7 +60,7 @@ not terminating the process.
 ### Punch
 
     docker run --rm \
-        udphole:local punch udphole.fly.dev:53000
+        udphole:local punch udphole.fly.dev:6094
 
 Use this command only for testing purpose, it has no practical use because
 the container is terminated after execution.
